@@ -1,0 +1,64 @@
+<!-- BEGIN: main -->
+<script type="text/javascript" src="include/javascript/popup_parent_helper.js"></script>
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+<tr>
+	<td style="padding-bottom: 2px;">
+			<form name="EditView" method="POST" action="index.php" enctype="multipart/form-data">
+			<input type="hidden" name="module" value="Products">
+			<input type="hidden" name="record" value="{ID}">
+			<input type="hidden" name="action">
+			<input type="hidden" name="return_module" value="{RETURN_MODULE}">
+			<input type="hidden" name="return_id" value="{RETURN_ID}">
+			<input type="hidden" name="return_action" value="{RETURN_ACTION}">
+
+            <input title="{APP.LBL_SAVE_BUTTON_TITLE}" accessKey="{APP.LBL_SAVE_BUTTON_KEY}" class="button" onclick="this.form.action.value='Save'; return check_form('EditView');" type="submit" name="button" value="  {APP.LBL_SAVE_BUTTON_LABEL}  " > 
+            <input title="{APP.LBL_CANCEL_BUTTON_TITLE}" accessKey="{APP.LBL_CANCEL_BUTTON_KEY}" class="button" onclick="this.form.action.value='{RETURN_ACTION}'; this.form.module.value='{RETURN_MODULE}'; this.form.record.value='{RETURN_ID}'" type="submit" name="button" value="  {APP.LBL_CANCEL_BUTTON_LABEL}  "></td>
+	<td align="right" nowrap><span  class="required">{APP.LBL_REQUIRED_SYMBOL}</span> {APP.NTC_REQUIRED}</td>
+	<td align='right'>{ADMIN_EDIT}</td>
+</tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0"  class="tabForm">
+	<tr>
+		<td width="15%" class="dataLabel"><slot>{MOD.LBL_NAME}<span class="required">{APP.LBL_REQUIRED_SYMBOL}</span></slot></td>
+		<td width="35%" class="dataField" colspan="3"><slot><input name='name' tabindex='1' type='text' size="50" value="{NAME}"></slot></td>
+	</tr>
+	<tr>
+		<td width="15%" class="dataLabel"><slot>{MOD.LBL_SHORT_DESCRIPTION}</slot><span class="required">{APP.LBL_REQUIRED_SYMBOL}</span></td>
+		<td width="35%" class="dataField" colspan="3"><slot><input name='short_description' tabindex='2' type='text' size="50" value="{SHORT_DESCRIPTION}"></slot></td>
+	</tr>
+	<tr>
+		<td width="15%" class="dataLabel"><slot>{MOD.LBL_LONG_DESCRIPTION}</slot></td>
+		<td width="35%" class="dataField" colspan="3"><slot><textarea name='long_description' tabindex='3' cols=40 rows=5>{LONG_DESCRIPTION}</textarea></slot></td>
+	</tr>	
+	<tr>
+		<td width="15%" class="dataLabel"><slot>{MOD.LBL_IMAGE}</slot></td>	
+		<td width="35%" class="dataField" colspan="3"><slot><input name="image" tabindex='4' type="file" size="37" onchange="setvalue(this);"/><br>{IMAGE_FILENAME}{IMAGE}</slot></td>
+	</tr>
+	<tr>
+		<td width="15%" class="dataLabel"><slot>{MOD.LBL_PRODUCT_PAGE_URL}</slot></td>
+		<td width="35%" class="dataField" colspan="3"><slot><input name='product_page_url' tabindex='5' type='text' size="50" value="{PRODUCT_PAGE_URL}"></slot></td>
+	</tr>
+	<tr>
+		<td width="15%" class="dataLabel"><slot>{MOD.LBL_AVAILABLE}</slot></td>
+		<td width="35%" class="dataField" colspan="3"><slot><select name='available' tabindex="6">{AVAILABLE}</select></slot></td>
+	</tr>
+	<tr>
+		<td width="15%" class="dataLabel"><slot>{MOD.LBL_LIST_PRICE}<span class="required">{APP.LBL_REQUIRED_SYMBOL}</span></slot></td>
+		<td width="35%" class="dataField" colspan="3"><slot><input name='list_price' tabindex='7' type='text' size="10" value="{LIST_PRICE}"></slot></td>
+	</tr>
+	<tr>
+		<td width="15%" class="dataLabel"><slot>{MOD.LBL_DEFAULT_USERS}</slot></td>
+		<td width="35%" class="dataField" colspan="3"><slot><input name='default_users' tabindex='8' type='text' size="10" value="{DEFAULT_USERS}"></slot></td>
+	</tr>
+	<tr>
+		<td width="15%" class="dataLabel"><slot>{MOD.LBL_DEFAULT_LIMIT}</slot></td>
+		<td width="35%" class="dataField" colspan="3"><slot><input name='default_limit' tabindex='9' type='text' size="10" value="{DEFAULT_LIMIT}"></slot></td>
+	</tr>
+	<tr>
+		<td width="15%" class="dataLabel"><slot>{MOD.LBL_NOTES}</slot></td>
+		<td width="35%" class="dataField" colspan="3"><slot><textarea name='notes' tabindex='10' cols=40 rows=5>{LONG_NOTES}</textarea></slot></td>
+	</tr>	
+</table>
+</form>
+{JAVASCRIPT}
+<!-- END: main -->

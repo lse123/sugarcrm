@@ -1,0 +1,55 @@
+<!-- BEGIN: main -->
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+	<tr>
+		<td style="padding-bottom: 2px;">
+			<form action="index.php" method="post" name="Docs_DetailView" id="form">
+				<input type="hidden" name="module" value="Products">
+				<input type="hidden" name="record" value="{ID}">
+				<input type="hidden" name="isDuplicate" value="0">
+				<input type="hidden" name="action" value="{ACTION}">
+				<input type="hidden" name="return_module" value="{RETURN_MODULE}">
+				<input type="hidden" name="return_action" value="{RETURN_ACTION}">
+				<input type="hidden" name="return_id" value="{ID}">
+                                <input type="hidden" name="trans" value="{TRANS}">
+                                <input type="hidden" name="doc_del" value=1>
+                                <input type="hidden" name="return_product_id" value="{PRODUCT_ID}"> 
+				<input title="{APP.LBL_EDIT_BUTTON_TITLE}" accessKey="{APP.LBL_EDIT_BUTTON_KEY}" class="button" type="submit" name="Edit" value="  {APP.LBL_EDIT_BUTTON_LABEL} ">
+<!--				<input title="{APP.LBL_DUPLICATE_BUTTON_TITLE}" accessKey="{APP.LBL_DUPLICATE_BUTTON_KEY}" class="button" onclick="document.DetailView.isDuplicate.value = 1;" type="submit" name="Duplicate" value=" {APP.LBL_DUPLICATE_BUTTON_LABEL} ">                     -->
+				<input title="{APP.LBL_DELETE_BUTTON_TITLE}" accessKey="{APP.LBL_DELETE_BUTTON_KEY}" class="button" onclick="document.Docs_DetailView.return_action.value = 'DetailView'; document.Docs_DetailView.action.value = 'Delete'; return confirm('{APP.NTC_DELETE_CONFIRMATION}')" type="submit" name="Delete" value=" {APP.LBL_DELETE_BUTTON_LABEL} ">
+			</form>
+		</td>
+		<td align='right'>{ADMIN_EDIT}</td>
+	</tr>
+</table>
+
+<table width="100%" border="0" cellspacing="{GRIDLINE}" cellpadding="0" class="tabDetailView">
+	<tr>
+<!--		<td width="15%" class="tabDetailViewDL"><slot>{MOD.LBL_DOC_ID}</slot></td>
+		<td width="35%" class="tabDetailViewDF" colspan=3><slot>{ID}</slot></td>    -->
+                <td width="15%" class="tabDetailViewDL"><slot>{MOD.LBL_DOC_DESCRIPTION}</slot></td>
+                <td width="35%" class="tabDetailViewDF"><slot>{DESCRIPTION}</slot></td>
+                <td width="15%" class="tabDetailViewDL"><slot>{MOD.LBL_DOC_FILENAME}</slot></td>
+                <td valign="top" class="tabDetailViewDF" colspan="3"><slot><a href='{PATH}' target='_blank' class="tabDetailViewDFLink">{FILENAME}</a></slot></td>
+
+	</tr>
+	<tr>
+	</tr>
+
+
+</table>
+<br>
+<form>
+<input type="hidden" name="module" value="Products">
+<input type="hidden" name="record" value="{ID}">
+<input type="hidden" name="action" value="{ACTION}">
+<input type="hidden" name="return_module" value="{RETURN_MODULE}">
+<input type="hidden" name="return_action" value="{RETURN_ACTION}">
+<input type="hidden" name="return_product_id" value="{PRODUCT_ID}">
+
+<input title="{MOD.BACK}" accessKey="{MOD.BACK}" class="button" onclick="this.form.action.value='DetailView'; this.form.module.value='{RETURN_MODULE}'; this.form.record.value='{PRODUCT_ID}'" type="submit" name="button" value="  {MOD.BACK}  ">
+</form>
+
+<!-- END: main -->
+<!-- BEGIN: subpanel -->
+<slot>{FORECASTSCHEDULE}</slot>
+<!-- END: subpanel -->

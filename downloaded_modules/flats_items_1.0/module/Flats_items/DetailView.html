@@ -1,0 +1,784 @@
+
+
+<!-- BEGIN: main -->
+
+
+
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+
+	<tr>
+
+		<td style="padding-bottom: 2px;">
+
+
+
+		<form action="index.php" method="post" name="DetailView" id="form">
+
+
+
+			<input type="hidden" name="module" value="Flats_items" />
+
+			<input type="hidden" name="record" value="{ID}" />
+
+			<input type="hidden" name="isDuplicate" value=false />
+
+			<input type="hidden" name="action" />
+
+			<input type="hidden" name="return_module" />
+
+			<input type="hidden" name="return_action" />
+
+			<input type="hidden" name="return_id" />
+
+			<input type="hidden" name="contact_id" />
+
+			<input type="hidden" name="member_id" />
+
+			<input type="hidden" name="opportunity_id" />
+
+			<input type="hidden" name="case_id" />
+
+			<input type="hidden" name="task_id" />
+
+			<input type="hidden" name="meeting_id" />
+
+			<input type="hidden" name="call_id" />
+
+			<input type="hidden" name="email_id" />
+
+			<input type="hidden" name="show_logs" />
+
+			<input type="hidden" name="bug_id" />
+
+			<input title="{APP.LBL_EDIT_BUTTON_TITLE}"
+
+				accessKey="{APP.LBL_EDIT_BUTTON_KEY}"
+
+				class="button"
+
+				onclick="this.form.return_module.value='Flats_items'; this.form.return_action.value='DetailView'; this.form.return_id.value='{ID}'; this.form.action.value='EditView'"
+
+				type="submit"
+
+				name="Edit"
+
+				value=" {APP.LBL_EDIT_BUTTON_LABEL} " />
+
+			<input title="{APP.LBL_DUPLICATE_BUTTON_TITLE}"
+
+				accessKey="{APP.LBL_DUPLICATE_BUTTON_KEY}"
+
+				class="button"
+
+				onclick="this.form.return_module.value='Flats_items'; this.form.return_action.value='index'; this.form.isDuplicate.value=true; this.form.action.value='EditView'"
+
+				type="submit"
+
+				name="Duplicate"
+
+				value=" {APP.LBL_DUPLICATE_BUTTON_LABEL} " />
+
+			<input title="{APP.LBL_DELETE_BUTTON_TITLE}"
+
+				accessKey="{APP.LBL_DELETE_BUTTON_KEY}"
+
+				class="button"
+
+				onclick="this.form.return_module.value='Flats_items'; this.form.return_action.value='ListView'; this.form.action.value='Delete'; return confirm('{APP.NTC_DELETE_CONFIRMATION}')"
+
+				type="submit"
+
+				name="Delete"
+
+				value=" {APP.LBL_DELETE_BUTTON_LABEL} " />
+
+			<input title="Logs"
+
+				accessKey="{APP.LBL_DELETE_BUTTON_KEY}"
+
+				class="button"
+
+				onclick="this.form.return_module.value='Flats_items'; this.form.action.value='DetailView'; this.form.show_logs.value='show_logs';"
+
+				type="submit"
+
+				name="show_logs"
+
+				value=" Logs " />
+
+
+
+			{FIND_DUPES_MERGE_BUTTON}
+
+		</form>
+
+		</td>
+
+		<td align="right">
+
+			{ADMIN_EDIT}
+
+		</td>
+
+	</tr>
+
+</table>
+
+
+
+<table width="100%" border="0" cellspacing="{GRIDLINE}" cellpadding="0" class="tabDetailView">
+
+
+
+	{PAGINATION}
+
+
+
+	<tr>
+
+		<td width="15%" valign="top" class="tabDetailViewDL">
+
+			<span sugar='slot1'>
+
+				{MOD.LBL_FLATS_NUMBER}
+
+			</span sugar='slot'>
+
+		</td>
+
+		<td width="35%" valign="top" class="tabDetailViewDF">
+
+			<span sugar='slot1b'>
+
+				{FLATS_NUMBER}
+
+			</span sugar='slot'>
+
+		</td>
+
+		<td width="15%" valign="top" class="tabDetailViewDL">
+
+			<span sugar='slot2'>
+
+				{MOD.LBL_ACCOUNT_NAME}
+
+			</span sugar='slot'>
+
+		</td>
+
+		<td width="35%" valign="top" class="tabDetailViewDF">
+
+			<span sugar='slot2b'>
+
+				{ACCOUNT_NAME}
+
+			</span sugar='slot'>
+
+		</td>
+
+	</tr>
+
+	<tr>
+
+		<td valign="top" class="tabDetailViewDL">
+
+			<span sugar='slot3'>
+
+				{MOD.LBL_TARGET}
+
+			</span sugar='slot'>
+
+		</td>
+
+		<td valign="top" class="tabDetailViewDF">
+
+			<span sugar='slot3b'>
+
+				{TARGET}
+
+			</span sugar='slot'>
+
+		</td>
+
+		<td valign="top" class="tabDetailViewDL">
+
+			<span sugar='slot4'>
+
+				{MOD.LBL_TITLE}
+
+			</span sugar='slot'>
+
+		</td>
+
+		<td valign="top" class="tabDetailViewDF">
+
+			<span sugar='slot4b'>
+
+				{TITLE}
+
+			</span sugar='slot'>
+
+		</td>
+
+	</tr>
+
+	<tr>
+
+		<td valign="top" class="tabDetailViewDL">
+
+			<span sugar='slot4'>
+
+				{MOD.LBL_STATUS}
+
+			</span sugar='slot'>
+
+		</td>
+
+		<td valign="top" class="tabDetailViewDF">
+
+			<span sugar='slot4b'>
+
+				{STATUS}
+
+			</span sugar='slot'>
+
+		</td>
+
+		<td valign="top" class="tabDetailViewDL">
+
+			<span sugar='slot4'>
+
+				{MOD.LBL_REPAIR}
+
+			</span sugar='slot'>
+
+		</td>
+
+		<td valign="top" class="tabDetailViewDF">
+
+			<span sugar='slot4b'>
+
+				{REPAIR}
+
+			</span sugar='slot'>
+
+		</td>
+
+	</tr>
+
+	<tr>
+
+		<td valign="top" class="tabDetailViewDL">
+
+			<span sugar='slot4'>
+
+				{MOD.LBL_STATE}
+
+			</span sugar='slot'>
+
+		</td>
+
+		<td valign="top" class="tabDetailViewDF">
+
+			<span sugar='slot4b'>
+
+				{STATE}
+
+			</span sugar='slot'>
+
+		</td>
+
+		<td valign="top" class="tabDetailViewDL">
+
+			<span sugar='slot4'>
+
+				{MOD.LBL_MEBEL}
+
+			</span sugar='slot'>
+
+		</td>
+
+		<td valign="top" class="tabDetailViewDF">
+
+			<span sugar='slot4b'>
+
+				{MEBEL}
+
+			</span sugar='slot'>
+
+		</td>
+
+	</tr>
+
+	<tr>
+
+		<td valign="top" class="tabDetailViewDL">
+
+			<span sugar='slot3'>
+
+				{MOD.LBL_ULICA}
+
+			</span sugar='slot'>
+
+		</td>
+
+		<td valign="top" class="tabDetailViewDF">
+
+			<span sugar='slot3b'>
+
+				{ULICA}
+
+			</span sugar='slot'>
+
+		</td>
+
+		<td valign="top" class="tabDetailViewDL">
+
+			<span sugar='slot4'>
+
+				{MOD.LBL_TYPE}
+
+			</span sugar='slot'>
+
+		</td>
+
+		<td valign="top" class="tabDetailViewDF">
+
+			<span sugar='slot4b'>
+
+				{TYPE}
+
+			</span sugar='slot'>
+
+		</td>
+
+	</tr>
+
+	<tr>
+
+		<td valign="top" class="tabDetailViewDL">
+
+			<span sugar='slot4'>
+
+				{MOD.LBL_DOM}
+
+			</span sugar='slot'>
+
+		</td>
+
+		<td valign="top" class="tabDetailViewDF">
+
+			<span sugar='slot4b'>
+
+				{DOM}
+
+			</span sugar='slot'>
+
+		</td>
+
+		<td valign="top" class="tabDetailViewDL">
+
+			<span sugar='slot4'>
+
+				{MOD.LBL_VC}
+
+			</span sugar='slot'>
+
+		</td>
+
+		<td valign="top" class="tabDetailViewDF">
+
+			<span sugar='slot4b'>
+
+				{VC}
+
+			</span sugar='slot'>
+
+		</td>
+
+	</tr>
+
+	<tr>
+
+		<td valign="top" class="tabDetailViewDL">
+
+			<span sugar='slot4'>
+
+				{MOD.LBL_KVARTIRA}
+
+			</span sugar='slot'>
+
+		</td>
+
+		<td valign="top" class="tabDetailViewDF">
+
+			<span sugar='slot4b'>
+
+				{KVARTIRA}
+
+			</span sugar='slot'>
+
+		</td>
+
+		<td valign="top" class="tabDetailViewDL">
+
+			<span sugar='slot4'>
+
+				{MOD.LBL_DIMENSIONS}
+
+			</span sugar='slot'>
+
+		</td>
+
+		<td valign="top" class="tabDetailViewDF">
+
+			<span sugar='slot4b'>
+
+				<i>Общая</i> {HEIGHT}, <i>Жилая</i> {WIDTH}, <i>Кухня</i> {DEPTH}
+
+			</span sugar='slot'>
+
+		</td>
+
+	</tr>
+
+	<tr>
+
+		<td valign="top" class="tabDetailViewDL">
+
+			<span sugar='slot4'>
+
+				{MOD.LBL_FLOOR}
+
+			</span sugar='slot'>
+
+		</td>
+
+		<td valign="top" class="tabDetailViewDF">
+
+			<span sugar='slot4b'>
+
+				{FLOOR}
+
+			</span sugar='slot'>
+
+		</td>
+
+		<td valign="top" class="tabDetailViewDL">
+
+			<span sugar='slot0'>
+
+				{MOD.LBL_VALUE}
+
+			</span sugar='slot'>
+
+		</td>
+
+		<td valign="top" class="tabDetailViewDF">
+
+			<span sugar='slot0b'>
+
+				{VALUE}
+
+			</span sugar='slot'>
+
+		</td>
+
+	</tr>
+
+	<tr>
+
+		<td valign="top" class="tabDetailViewDL">
+
+			<span sugar='slot4'>
+
+				{MOD.LBL_YEAR}
+
+			</span sugar='slot'>
+
+		</td>
+
+		<td valign="top" class="tabDetailViewDF">
+
+			<span sugar='slot4b'>
+
+				{YEAR}
+
+			</span sugar='slot'>
+
+		</td>
+
+		<td valign="top" class="tabDetailViewDL">
+
+			<span sugar='slot0'>
+
+				<nobr>
+
+				{MOD.LBL_DESCRIPTION}
+
+				</nobr>
+
+			</span sugar='slot'>
+
+		</td>
+
+		<td valign="top" class="tabDetailViewDF">
+
+			<span sugar='slot0b'>
+
+				{DESCRIPTION}
+
+			</span sugar='slot'>
+
+		</td>
+
+	</tr>
+
+	<tr>
+
+		<td class="tabDetailViewDL">
+
+			<span sugar='slot19'>
+
+				{MOD.LBL_DATE_RECEIVED}
+
+			</span sugar='slot'>
+
+		</td>
+
+		<td class="tabDetailViewDF">
+
+			<span sugar='slot21b'>
+
+				{DATE_RECEIVED}
+
+			</span sugar='slot'>
+
+		</td>
+
+		<td class="tabDetailViewDL">
+
+			<span sugar='slot19'>
+
+				{MOD.LBL_DATE_LEFT}
+
+			</span sugar='slot'>
+
+		</td>
+
+		<td class="tabDetailViewDF">
+
+			<span sugar='slot19b'>
+
+				{DATE_LEFT}
+
+			</span sugar='slot'>
+
+		</td>
+
+	</tr>
+
+	<tr>
+
+		<td class="tabDetailViewDL">
+
+			<span sugar='slot19'>
+
+				{MOD.LBL_PHOTO}
+
+			</span sugar='slot'>
+
+		</td>
+
+		<td class="tabDetailViewDF">
+
+			<span sugar='slot21b'>
+
+				<a href="{PHOTO_URL}">
+
+					<img src="{THUMB_URL}"
+
+						style="border:0;" />
+
+				</a>
+
+			</span sugar='slot'>
+
+		</td>
+
+
+		<td class="tabDetailViewDL">
+
+			<span sugar='slot19'>
+
+				{MOD.LBL_PHOTO}
+
+			</span sugar='slot'>
+
+		</td>
+
+		<td class="tabDetailViewDF">
+
+			<span sugar='slot21b'>
+
+				<a href="{PHOTO_URL1}">
+
+					<img src="{THUMB_URL1}"
+
+						style="border:0;" />
+
+				</a>
+
+			</span sugar='slot'>
+
+		</td>
+
+
+
+
+
+	</tr>
+   <tr>
+
+		<td class="tabDetailViewDL">
+
+			<span sugar='slot19'>
+
+				{MOD.LBL_PHOTO}
+
+			</span sugar='slot'>
+
+		</td>
+
+		<td class="tabDetailViewDF">
+
+			<span sugar='slot21b'>
+
+				<a href="{PHOTO_URL2}">
+
+					<img src="{THUMB_URL2}"
+
+						style="border:0;" />
+
+				</a>
+
+			</span sugar='slot'>
+
+		</td>
+
+
+		<td class="tabDetailViewDL">
+
+			<span sugar='slot19'>
+
+				{MOD.LBL_PHOTO}
+
+			</span sugar='slot'>
+
+		</td>
+
+		<td class="tabDetailViewDF">
+
+			<span sugar='slot21b'>
+
+				<a href="{PHOTO_URL3}">
+
+					<img src="{THUMB_URL3}"
+
+						style="border:0;" />
+
+				</a>
+
+			</span sugar='slot'>
+
+		</td>
+
+
+
+
+
+	</tr>
+	<tr>
+
+		<td class="tabDetailViewDL">
+
+			<span sugar='slot19'>
+
+				{MOD.LBL_PHOTO}
+
+			</span sugar='slot'>
+
+		</td>
+
+		<td class="tabDetailViewDF">
+
+			<span sugar='slot21b'>
+
+				<a href="{PHOTO_URL4}">
+
+					<img src="{THUMB_URL4}"
+
+						style="border:0;" />
+
+				</a>
+
+			</span sugar='slot'>
+
+		</td>
+
+
+		<td class="tabDetailViewDL">
+
+			<span sugar='slot19'>
+
+				{MOD.LBL_PHOTO}
+
+			</span sugar='slot'>
+
+		</td>
+
+		<td class="tabDetailViewDF">
+
+			<span sugar='slot21b'>
+
+				<a href="{PHOTO_URL5}">
+
+					<img src="{THUMB_URL5}"
+
+						style="border:0;" />
+
+				</a>
+
+			</span sugar='slot'>
+
+		</td>
+
+
+
+
+
+	</tr>
+</table>
+
+
+
+{FLATS_CHANGES}
+
+
+
+
+
+<!-- END: main -->
+
+
+
+<!-- BEGIN: subpanel -->
+
+<span sugar='slot25'>
+
+	{SUBPANEL}
+
+</span sugar='slot'>
+
+<!-- END: subpanel -->
+

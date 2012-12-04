@@ -1,0 +1,43 @@
+<!-- BEGIN: main -->
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+<tr>
+        <td style="padding-bottom: 2px;">
+                <form name="ListView" method="POST" action="index.php">
+                        <input type="hidden" name="module" value="Products">
+                        <input type="hidden" name="record">
+                        <input type="hidden" name="action">
+                        <input type="hidden" name="form">
+                        <input type="hidden" name="return_module" value="{RETURN_MODULE}">
+                        <input type="hidden" name="return_id" value="{RETURN_ID}">
+                        <input type="hidden" name="return_action" value="{RETURN_ACTION}">
+                </form>
+        </td>
+        <td align="right">{ADMIN_EDIT}</td>
+</tr>
+</table>
+
+<table cellpadding="0" cellspacing="0" width="100%" border="0" class="listView">
+<!-- BEGIN: list_nav_row -->
+{PAGINATION}
+<!-- END: list_nav_row -->
+	<tr height="20">
+		<td scope="col" class="listViewThS1" NOWRAP>{CHECKALL}</td>
+		<td scope="col" width="20%" class="listViewThS1" NOWRAP><slot><a href="{ORDER_BY}name" class="listViewThLinkS1">{MOD.LBL_NAME}{arrow_start}{arrow_end}</a></slot></td>
+		<td scope="col" width="55%" class="listViewThS1" NOWRAP><slot><a href="{ORDER_BY}short_description" class="listViewThLinkS1">{MOD.LBL_SHORT_DESCRIPTION}{arrow_start}{arrow_end}</a></slot></td>
+		<td scope="col" width="10%" class="listViewThS1" NOWRAP><slot><a href="{ORDER_BY}available" class="listViewThLinkS1">{MOD.LBL_AVAILABLE}{arrow_start}{arrow_end}</a></slot></td>
+		<td scope="col" width="15%" class="listViewThS1" NOWRAP><slot><a href="{ORDER_BY}list_price" class="listViewThLinkS1">{MOD.LBL_LIST_PRICE}{arrow_start}{arrow_end}</a></slot></td>
+    </tr>
+
+<!-- BEGIN: row -->
+<tr height="20"  onmouseover="setPointer(this, '{PRODUCTS.ID}', 'over', '{BG_COLOR}', '{BG_HILITE}', '{BG_CLICK}');" onmouseout="setPointer(this, '{PRODUCTS.ID}', 'out', '{BG_COLOR}', '{BG_HILITE}', '{BG_CLICK}');" onmousedown="setPointer(this, '{PRODUCTS.ID}', 'click', '{BG_COLOR}', '{BG_HILITE}', '{BG_CLICK}');">
+                <td class="{ROW_COLOR}S1" bgcolor="{BG_COLOR}" valign='top'>{PREROW}</td>
+                           <td scope='row' valign=TOP class="{ROW_COLOR}S1" bgcolor="{BG_COLOR}"><slot><a href="{URL_PREFIX}index.php?action=DetailView&module=Products&record={PRODUCTS.ID}&offset={PRODUCTS.OFFSET}&stamp={PRODUCTS.STAMP}"  class="listViewTdLinkS1">{PRODUCTS.NAME}</a></slot></td>
+                           <td valign=TOP class="{ROW_COLOR}S1" bgcolor="{BG_COLOR}"><slot>{PRODUCTS.SHORT_DESCRIPTION}</slot></td>
+                           <td valign=TOP class="{ROW_COLOR}S1" bgcolor="{BG_COLOR}"><slot>{PRODUCTS.AVAILABLE}</input></slot></td>
+                           <td valign=TOP class="{ROW_COLOR}S1" bgcolor="{BG_COLOR}"><slot>{PRODUCTS.LIST_PRICE}</slot></td>
+</tr>
+<tr><td colspan="20" class="listViewHRS1"></td></tr>
+<!-- END: row -->
+{PAGINATION}
+</table>
+<!-- END: main -->

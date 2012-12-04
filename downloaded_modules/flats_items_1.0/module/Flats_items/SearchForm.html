@@ -1,0 +1,478 @@
+<!-- BEGIN: main -->
+
+<table width="100%" cellspacing="0" cellpadding="0" border="0" style="border-top: 0px none; margin-bottom: 4px" class="tabForm">
+	<tr>
+		<td>
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				<tr valign="top">
+					<td class="dataLabel" noWrap>
+						<span sugar="slot1">
+							{MOD.LBL_FLATS_NUMBER}&nbsp;&nbsp;
+							<input type="text"
+								tabindex="1"
+								size="10"
+								name="flats_number_basic"
+								class="dataField"
+								value="{FLATS_NUMBER}"
+								/>
+						</span sugar="slot">
+					</td>
+					<td class="dataLabel" noWrap>
+						<span sugar="slot1b">
+							{MOD.LBL_ACCOUNT_NAME}&nbsp;&nbsp;
+							<input type="text"
+								tabindex="1"
+								size="10"
+								name="account_name_basic"
+								class="dataField"
+								value="{ACCOUNT_NAME}"
+								/>
+						</span sugar="slot">
+					</td>
+					<td class="dataLabel" noWrap>
+						<span sugar="slot2">
+							{MOD.LBL_ULICA}&nbsp;&nbsp;
+							<input tabindex="1"
+								type="text"
+								size="10"
+								name="ulica_basic"
+								class=dataField  value="{ULICA}" />
+						</span sugar="slot">
+					</td>
+					<td class="dataLabel" noWrap>
+						<span sugar="slot2b">
+							{MOD.LBL_TITLE}&nbsp;&nbsp;
+							<input tabindex="1"
+								type="text"
+								size="10"
+								name="title_basic"
+								class="dataField"
+								value="{TITLE}" />
+						</span sugar="slot">
+					</td>
+				</tr>
+				<tr>
+					<td class="dataLabel" noWrap>
+						<span sugar="slot3">
+							{MOD.LBL_DATE_RECEIVED}&nbsp;&nbsp;
+							<input tabindex="1"
+								type="text"
+								size="10"
+								name="date_received_basic"
+								class="dataField"
+								value="{DATE_RECEIVED}" />
+						</span sugar="slot">
+					</td>
+					<td class="dataLabel" noWrap>
+						<span sugar="slot3">
+							{MOD.LBL_DATE_LEFT}&nbsp;&nbsp;
+							<input tabindex="1"
+								type="text"
+								size="10"
+								name="date_left_basic"
+								class="dataField"
+								value="{DATE_LEFT}" />
+						</span sugar="slot">
+					</td>
+					<td class="dataLabel" noWrap>
+						<span sugar="slot2b">
+							{MOD.LBL_DESCRIPTION}&nbsp;&nbsp;
+							<input tabindex="1"
+								type="text"
+								size="10"
+								name="description_basic"
+								class="dataField"
+								value="{DESCRIPTION}" />
+						</span sugar="slot">
+					</td>
+			   	</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+
+<!-- END: main -->
+
+<!-- BEGIN: advanced -->
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" style="border-top: 0px none; margin-bottom: 4px" class="tabForm">
+	<tr>
+		<td>
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td width="20%" class="dataLabel">
+						<span sugar="slot3b">
+							{MOD.LBL_FLATS_NUMBER}
+						</span sugar="slot">
+					</td>
+					<td width="25%" class="dataField">
+						<span sugar="slot4">
+							<input name="flats_number"
+								tabindex="1"
+								size="25"
+								maxlength="35"
+								type="text"
+								value="{FLATS_NUMBER}" />
+						</span sugar="slot">
+					</td>
+					<td width="20%" class="dataLabel">
+						<span sugar="slot4b">
+							{MOD.LBL_ACCOUNT_NAME}
+						</span sugar="slot">
+					</td>
+					<td width="25%" class="dataField">
+						<span sugar="slot5">
+							<input name="account_name"
+								type="text"
+								tabindex="2"
+								size="20"
+								maxlength="25"
+								value="{ACCOUNT_NAME}" />
+						</span sugar="slot">
+					</td>
+				</tr>
+				<tr>
+					<td width="20%" class="dataLabel">
+						<span sugar="slot5b">
+							{MOD.LBL_VC}
+						</span sugar="slot">
+					</td>
+					<td width="25%" class="dataField">
+						<span sugar="slot6">
+							<select size="3" name="vc[]" tabindex="1" multiple="false">
+								{VC_OPTIONS}
+							</select>
+						</span sugar="slot">
+					</td>
+					<td width="20%" class="dataLabel">
+						<span sugar="slot6b">
+							{MOD.LBL_REPAIR}
+						</span sugar="slot">
+					</td>
+					<td width="25%" class="dataField">
+						<span sugar="slot7">
+							<select size="3" name="repair[]" tabindex="1" multiple="false">
+								{REPAIR_OPTIONS}
+							</select>
+						</span sugar="slot">
+					</td>
+				</tr>
+				<tr>
+					<td width="20%" class="dataLabel">
+						<span sugar="slot7b">
+							{MOD.LBL_ULICA}
+						</span sugar="slot">
+					</td>
+					<td width="25%" class="dataField">
+						<span sugar="slot8">
+							<input name="ulica"
+								tabindex="1"
+								size="25"
+								maxlength="35"
+								type="text"
+								value="{ULICA}" />
+						</span sugar="slot">
+					</td>
+					<td width="20%" class="dataLabel">
+						<span sugar="slot8b">
+							{MOD.LBL_TITLE}
+						</span sugar="slot">
+					</td>
+					<td width="25%" class="dataField">
+						<span sugar="slot9">
+							<input name="title"
+								type="text"
+								tabindex="2"
+								size="20"
+								maxlength="25"
+								value="{title}" />
+						</span sugar="slot">
+					</td>
+				</tr>
+				<tr>
+					<td width="20%" class="dataLabel">
+						<span sugar="slot9b">
+							{MOD.LBL_DOM}
+						</span sugar="slot">
+					</td>
+					<td width="25%" class="dataField">
+						<span sugar="slot10">
+							<input name="dom"
+								tabindex="1"
+								size="25"
+								maxlength="35"
+								type="text"
+								value="{DOM}" />
+						</span sugar="slot">
+					</td>
+
+				<tr>
+					<td width="20%" class="dataLabel">
+						<span sugar="slot11b">
+							{MOD.LBL_DATE_RECEIVED}
+						</span sugar="slot">
+					</td>
+					<td width="25%" class="dataField">
+						<span sugar="slot12">
+							<input name="date_received"
+								type="text"
+								tabindex="2"
+								size="20"
+								maxlength="25"
+								value="{DATE_RECEIVED}" />
+						</span sugar="slot">
+					</td>
+					<td width="20%" class="dataLabel">
+						<span sugar="slot12b">
+							{MOD.LBL_DATE_LEFT}
+						</span sugar="slot">
+					</td>
+					<td width="25%" class="dataField">
+						<span sugar="slot13">
+							<input name="date_left"
+								tabindex="1"
+								size="25"
+								maxlength="35"
+								type="text"
+								value="{DATE_LEFT}" />
+						</span sugar="slot">
+					</td>
+				</tr>
+				<tr>
+					<td width="20%" class="dataLabel">
+						<span sugar="slot13b">
+							{MOD.LBL_TYPE}
+						</span sugar="slot">
+					</td>
+					<td width="25%" class="dataField">
+						<span sugar="slot14">
+							<select size="3" name="type[]" tabindex="1" multiple="false">
+								{TYPE_OPTIONS}
+							</select>
+						</span sugar="slot">
+					</td>
+					<td width="20%" class="dataLabel">
+						<span sugar="slot14b">
+							{MOD.LBL_DESCRIPTION}
+						</span sugar="slot">
+					</td>
+					<td width="25%" class="dataField">
+						<span sugar="slot15">
+							<input name="description"
+								type="text"
+								tabindex="2"
+								size="20"
+								maxlength="25"
+								value="{DESCRIPTION}" />
+						</span sugar="slot">
+					</td>
+				</tr>
+				<tr>
+					<td width="20%" class="dataLabel">
+						<span sugar="slot18b">
+							{MOD.LBL_KVARTIRA}
+						</span sugar="slot">
+					</td>
+					<td width="25%" class="dataField">
+						<span sugar="slot19">
+							<input name="kvartira"
+								tabindex="1"
+								size="25"
+								maxlength="35"
+								type="text"
+								value="{KVARTIRA}" />
+						</span sugar="slot">
+					</td>
+					<td width="20%" class="dataLabel">
+						<span sugar="slot19b">
+							{MOD.LBL_TARGET}
+						</span sugar="slot">
+					</td>
+					<td width="25%" class="dataField">
+						<span sugar="slot20">
+							<select size="3" name="target[]" tabindex="1" multiple="false">
+								{TARGET_OPTIONS}
+							</select>
+						</span sugar="slot">
+					</td>
+				</tr>
+				<tr>
+					<td width="20%" class="dataLabel">
+						<span sugar="slot20b">
+							{MOD.LBL_VALUE}
+						</span sugar="slot">
+					</td>
+					<td width="25%" class="dataField">
+						<span sugar="slot21">
+							<input name="value"
+								tabindex="1"
+								size="25"
+								maxlength="35"
+								type="text"
+								value="{VALUE}" />
+						</span sugar="slot">
+					</td>
+					<td width="20%" class="dataLabel">
+						<span sugar="slot21b">
+							{MOD.LBL_MEBEL}
+						</span sugar="slot">
+					</td>
+					<td width="25%" class="dataField">
+						<span sugar="slot22">
+							<select size="3" name="mebel[]" tabindex="1" multiple="false">
+								{MEBEL_OPTIONS}
+							</select>
+						</span sugar="slot">
+					</td>
+				</tr>
+				<tr>
+					<td width="20%" class="dataLabel">
+						<span sugar="slot23b">
+							{MOD.LBL_STATUS}
+						</span sugar="slot">
+					</td>
+					<td width="25%" class="dataField">
+						<span sugar="slot24">
+							<select size="3" name="status[]" tabindex="1" multiple="false">
+								{STATUS_OPTIONS}
+							</select>
+						</span sugar="slot">
+					</td>
+					<td width="20%" class="dataLabel">
+						<span sugar="slot23b">
+							{MOD.LBL_YEAR}
+						</span sugar="slot">
+					</td>
+					<td width="25%" class="dataField">
+						<span sugar="slot24">
+							<input name="year"
+								tabindex="1"
+								size="25"
+								maxlength="35"
+								type="text"
+								value="{YEAR}" />
+						</span sugar="slot">
+					</td>
+				</tr>
+				<tr>
+					<td width="20%" class="dataLabel">
+						<span sugar="slot23b">
+							{MOD.LBL_STATE}
+						</span sugar="slot">
+					</td>
+					<td width="25%" class="dataField">
+						<span sugar="slot24">
+							<select size="3" name="state[]" tabindex="1" multiple="false">
+								{STATE_OPTIONS}
+							</select>
+						</span sugar="slot">
+					</td>
+					<td width="20%" class="dataLabel">
+						<span sugar="slot22b">
+							{MOD.LBL_FLOOR}
+						</span sugar="slot">
+					</td>
+					<td width="25%" class="dataField">
+						<span sugar="slot23">
+							<input name="height"
+								tabindex="1"
+								size="25"
+								maxlength="35"
+								type="text"
+								value="{FLOOR}" />
+						</span sugar="slot">
+					</td>
+				</tr>                <td width="20%" class="dataLabel">
+
+						<span sugar="slot22b">
+
+							{MOD.LBL_ROOM}
+
+						</span sugar="slot">
+
+					</td>
+
+					<td width="25%" class="dataField">
+
+						<span sugar="slot23">
+
+							<input name="height"
+
+								tabindex="1"
+
+								size="25"
+
+								maxlength="35"
+
+								type="text"
+
+								value="{ROOM}" />
+
+						</span sugar="slot">
+
+					</td>
+
+				</tr>
+				<tr>
+					<td width="10%" class="dataLabel">
+						<span sugar="slot15b">
+							{MOD.LBL_HEIGHT}
+						</span sugar="slot">
+					</td>
+					<td width="15%" class="dataField">
+						<span sugar="slot16">
+							<input name="height"
+								tabindex="1"
+								size="25"
+								maxlength="35"
+								type="text"
+								value="{HEIGHT}" />
+						</span sugar="slot">
+					</td>
+					<td width="10%" class="dataLabel">
+						<span sugar="slot16b">
+							{MOD.LBL_WIDTH}
+						</span sugar="slot">
+					</td>
+					<td width="15%" class="dataField">
+						<span sugar="slot17">
+							<input name="width"
+								type="text"
+								tabindex="2"
+								size="20"
+								maxlength="25"
+								value="{WIDTH}" />
+						</span sugar="slot">
+					</td>
+				</tr>
+				<tr>
+					<td width="10%" class="dataLabel">
+						<span sugar="slot17b">
+							{MOD.LBL_DEPTH}
+						</span sugar="slot">
+					</td>
+					<td width="15%" class="dataField">
+						<span sugar="slot18">
+							<input name="depth"
+								type="text"
+								tabindex="2"
+								size="20"
+								maxlength="25"
+								value="{DEPTH}" />
+						</span sugar="slot">
+					</td>
+					<td width="10%" class="dataLabel">
+						<span sugar="slot17b">
+						</span sugar="slot">
+					</td>
+					<td width="15%" class="dataField">
+						<span sugar="slot18">
+						</span sugar="slot">
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+
+<!-- END: advanced -->

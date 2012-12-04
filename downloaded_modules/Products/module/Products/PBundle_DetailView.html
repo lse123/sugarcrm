@@ -1,0 +1,40 @@
+
+<!-- BEGIN: main -->
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+	<tr>
+		<td style="padding-bottom: 2px;">
+			<form action="index.php" method="post" name="DetailView" id="form">
+				<input type="hidden" name="module" value="Products">
+				<input type="hidden" name="record" value="{ID}">
+				<input type="hidden" name="pbundle_del" value="1">
+				<input type="hidden" name="isDuplicate" value="0">
+				<input type="hidden" name="action" value="{ACTION}">
+				<input type="hidden" name="return_module" value="{RETURN_MODULE}">
+				<input type="hidden" name="return_action" value="{RETURN_ACTION}">
+				<input type="hidden" name="return_id" value="{ID}">
+				<input type="hidden" name="bundle_del" value=1>
+				<input title='Edit' class='button' type='submit' name='Edit' onclick="document.DetailView.return_action.value = 'PBundle_DetailView'; document.DetailView.action.value = 'PBundle_EditView';" value='  Edit '>
+				<input title="{APP.LBL_DELETE_BUTTON_TITLE}" accessKey="{APP.LBL_DELETE_BUTTON_KEY}" class="button" onclick="this.form.return_module.value='Products'; this.form.return_action.value='PBundle_ListView'; this.form.action.value='Delete'; return confirm('{APP.NTC_DELETE_CONFIRMATION}')" type="submit" name="Delete" value=" {APP.LBL_DELETE_BUTTON_LABEL} ">
+			</form>
+		</td>
+		<td align='right'>{ADMIN_EDIT}</td>
+	</tr>
+</table>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0"  class="tabForm">
+	<tr>
+        <td width="15%" class="tabDetailViewDL"><slot>Name</slot></td>
+        <td width="35%" class="tabDetailViewDF"><slot>{NAME}</slot></td>
+        <td width="15%" class="tabDetailViewDL"><slot></slot></td>
+        <td width="35%" class="tabDetailViewDF"><slot></slot></td>
+	</tr>
+	<tr>
+		<td width="15%" class="tabDetailViewDL"><slot>{MOD.LBL_AVAILABLE}</slot></td>
+		<td width="35%" class="tabDetailViewDF"><slot>{AVAILABLE}</slot></td>
+        <td width="15%" class="tabDetailViewDL"><slot></slot></td>
+        <td width="35%" class="tabDetailViewDF"><slot></slot></td>
+	</tr>
+</table>
+<h3>Product Details</h3>
+{BUNDLE_ITEMS}
+<!-- END: main -->

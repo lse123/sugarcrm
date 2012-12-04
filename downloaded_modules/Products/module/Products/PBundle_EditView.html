@@ -1,0 +1,193 @@
+<!-- BEGIN: main -->
+{XAJAX}
+<script type="text/javascript" src="include/javascript/popup_parent_helper.js"></script>
+<script>
+
+function createHIDDENElement( AName, AValue )
+{
+    IEle = document.createElement("INPUT");
+    IEle.setAttribute("type", "hidden");
+    IEle.setAttribute("name", AName);
+    IEle.setAttribute("value", AValue);
+    IEle.setAttribute("id", AName);
+    return IEle;
+}
+
+function createINPUTElement( AName, AValue, ASize )
+{
+    IEle = document.createElement("INPUT");
+    IEle.setAttribute("type", "text");
+    IEle.setAttribute("name", AName);
+    IEle.setAttribute("value", AValue);
+    IEle.setAttribute("size", ASize);
+    IEle.setAttribute("id", AName);
+    return IEle;
+}
+
+function createTEXTAREAElement( AName, AValue, ARows, ACols )
+{
+    IEle = document.createElement("TEXTAREA");
+    IEle.setAttribute("name", AName);
+    IEle.setAttribute("rows", ARows);
+    IEle.setAttribute("cols", ACols);
+    IEle.setAttribute("id", AName);
+    IEle.setAttribute("value", AValue);
+    IEle.appendChild(document.createTextNode(AValue));
+    return IEle;
+}
+
+function getDeleteRowLink( RowId, DeleterTxt )
+{
+	anchor = document.createElement("a");
+	anchor.setAttribute("href", "javascript:doDeleteRow('"+RowId+"')");
+	anchor.setAttribute("title", "Delete row");
+	anchor.style.cssText = "cursor: hand";
+	anchor.appendChild(DeleterTxt);
+	return anchor;
+}
+
+function newCell( row, n, aligntype )
+{
+    cell = row.insertCell(n);
+    cell.setAttribute("bgcolor", "White");
+    cell.setAttribute("align", aligntype);
+    cell.setAttribute("valign", 'top');
+    return cell;
+}
+
+function addRow()
+{
+	itemsCount++;
+	document.getElementById ('items_count').value = itemsCount;
+	
+    // Create new elements
+    i_id = createHIDDENElement('i_id_'+itemsCount, document.getElementById ('_product_id').value);
+    i_name = createHIDDENElement('i_name_'+itemsCount, document.getElementById ('_product_name').value);
+    i_description = createTEXTAREAElement('i_description_'+itemsCount, document.getElementById ('_product_description').value, 5, 60);
+    i_users = createINPUTElement('i_users_'+itemsCount, document.getElementById ('_product_users').value, 5);
+    i_limit = createINPUTElement('i_limit_'+itemsCount, document.getElementById ('_product_limit').value, 5);
+    i_price = createINPUTElement('i_price_'+itemsCount, document.getElementById ('_product_price').value, 7);
+        
+    // Add the newly created elements to the table tree
+    tbl = document.getElementById('items_table');
+	row = tbl.insertRow(tbl.childNodes[0].childNodes.length); // Inserting at last position
+    
+    row.setAttribute("id", 'row'+itemsCount);
+    row.setAttribute("bgcolor", "White");
+    row.style.backgroundColor = "White";
+
+    cell = newCell(row, 0, "center");
+    link = getDeleteRowLink('row'+itemsCount, document.createTextNode("[-]"), 'items_table');
+    cell.appendChild(link);
+    cell.appendChild(i_id);
+    cell.appendChild(i_name);
+    
+    cell = newCell(row, 1, "left");
+	cell.appendChild(document.createTextNode(document.getElementById('_product_name').value));
+
+    cell = newCell(row, 2, "left");
+	cell.appendChild(i_description);
+    
+    cell = newCell(row, 3, "center");
+    cell.appendChild(i_users);
+
+    cell = newCell(row, 4, "center");
+    cell.appendChild(i_limit);
+
+    cell = newCell(row, 5, "right");
+    i_price.readOnly = true;
+    cell.appendChild(i_price);
+} // addRow
+
+function doDeleteRow( ObjId )
+{
+    child = document.getElementById(ObjId);
+    child.parentNode.removeChild(child);
+    do_calculate();   
+}
+//------------------------------------------------ computeDigest Stuff END
+</script>
+<form name="EditView" method="POST" action="index.php" enctype="multipart/form-data">
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+<tr>
+	<td style="padding-bottom: 2px;">
+			<input type="hidden" name="module" value="Products">
+			<input type="hidden" name="record" value="{ID}">
+			<input type="hidden" name="action">
+			<input type="hidden" name="isUpdate" value="{ISUPDATE}">
+			<input type="hidden" name="isPBundle" value="true">
+			<input type="hidden" name="return_module" value="{RETURN_MODULE}">
+			<input type="hidden" name="return_id" value="{RETURN_ID}">
+			<input type="hidden" name="return_action" value="{RETURN_ACTION}">
+
+            <input title="{APP.LBL_SAVE_BUTTON_TITLE}" accessKey="{APP.LBL_SAVE_BUTTON_KEY}" class="button" onclick="this.form.action.value='PBundle_Save'; return check_form('EditView');" type="submit" name="button" value="  {APP.LBL_SAVE_BUTTON_LABEL}  " > 
+            <input title="{APP.LBL_CANCEL_BUTTON_TITLE}" accessKey="{APP.LBL_CANCEL_BUTTON_KEY}" class="button" onclick="this.form.action.value='{RETURN_ACTION}'; this.form.module.value='{RETURN_MODULE}'; this.form.record.value='{RETURN_ID}'" type="submit" name="button" value="  {APP.LBL_CANCEL_BUTTON_LABEL}  "></td>
+	<td align="right" nowrap><span  class="required">{APP.LBL_REQUIRED_SYMBOL}</span> {APP.NTC_REQUIRED}</td>
+	<td align='right'>{ADMIN_EDIT}</td>
+</tr>
+</table>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0"  class="tabForm">
+	<tr>
+        <td width="15%" class="dataLabel"><slot>Name<span class="required">{APP.LBL_REQUIRED_SYMBOL}</span></slot></td>
+        <td width="35%" class="dataField"><slot><input name='name' tabindex='2' type='text' size=40 value="{NAME}"></slot></td>
+        <td width="15%" class="dataLabel"><slot></slot></td>
+        <td width="35%" class="dataField"><slot></slot></td>
+	</tr>
+	<tr>
+		<td width="15%" class="dataLabel"><slot>{MOD.LBL_AVAILABLE}</slot></td>
+		<td width="35%" class="dataField"><slot><select name='available' tabindex="6">{AVAILABLE}</select></slot></td>
+        <td width="15%" class="dataLabel"><slot></slot></td>
+        <td width="35%" class="dataField"><slot></slot></td>
+	</tr>
+</table>
+<table width="100%">
+<tr><td valign="top" width="10%"><select id="product_list" size="5" multiple="multiple">{PRODUCT_LIST}</select></td>
+<td valign="top" width="5%"><br><br><br><input type="button" class="button" id="select_product_btn" value="ADD >" onclick="select_product();"></td>
+<td valign="top" width="85%">{BUNDLE_ITEMS}</td></tr>
+</table>
+
+</form>
+<script type="text/javascript">
+
+function select_product()
+{
+	document.getElementById('select_product_btn').value = 'Wait...';
+	document.getElementById('select_product_btn').disabled = true;
+	selected_items = new Array();
+	selected_bundles = new Array();	
+	c = 0;
+	pl = document.getElementById('product_list');
+	for (i=0; i<pl.length; i++)
+		if (pl.options[i].selected)
+			selected_items [++c] = pl.options[i].value;
+		
+	if (c>0)
+		xajax_lookupProduct(selected_items, selected_bundles);
+	else
+		alert ('Please select at least one product...');
+	return false;
+}
+
+function add_product()
+{
+	if (document.getElementById('_product_id').value != '')
+	{
+		addRow();
+	
+		document.getElementById('_product_id').value = '';
+		document.getElementById('_product_name').value = '';
+		document.getElementById('_product_description').value = '';
+		document.getElementById('_product_users').value = '';
+		document.getElementById('_product_limit').value = '';
+		document.getElementById('_product_price').value = '';
+	}
+	else
+	{
+		alert ('Please, select a product first...');
+	}
+}
+
+</script>
+{JAVASCRIPT}
+<!-- END: main -->

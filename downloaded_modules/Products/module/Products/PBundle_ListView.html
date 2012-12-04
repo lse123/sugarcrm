@@ -1,0 +1,39 @@
+<script type="text/javascript" src="include/javascript/popup_parent_helper.js">
+<!-- BEGIN: main -->
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+<tr>
+        <td style="padding-bottom: 2px;">
+                <form name="ListView" method="POST" action="index.php">
+                        <input type="hidden" name="module" value="Products">
+                        <input type="hidden" name="record">
+                        <input type="hidden" name="action">
+                        <input type="hidden" name="form">
+                        <input type="hidden" name="return_module" value="{RETURN_MODULE}">
+                        <input type="hidden" name="return_id" value="{RETURN_ID}">
+                        <input type="hidden" name="return_action" value="{RETURN_ACTION}">
+<!--                        <input title="{APP.LBL_NEW_BUTTON_TITLE}" accessKey="{APP.LBL_NEW_BUTTON_KEY}" class="button" onclick="this.form.return_module.value='Products'; this.form.return_action.value='DetailView'; this.form.return_id.value='{ID}'; this.form.action.value='EditView'" type="submit" name="button" value="  {APP.LBL_NEW_BUTTON_LABEL}  ">     -->
+                </form>
+        </td>
+        <td align="right">{ADMIN_EDIT}</td>
+</tr>
+</table>
+
+<table cellpadding="0" cellspacing="0" width="100%" border="0" class="listView">
+<!-- BEGIN: list_nav_row -->
+{PAGINATION}
+<!-- END: list_nav_row -->
+	<tr height="20">
+		<td scope="col" class="listViewThS1" NOWRAP>{CHECKALL}</td>
+		<td scope="col" width="100%" class="listViewThS1" NOWRAP><slot><a href="{ORDER_BY}name" class="listViewThLinkS1">{MOD.LBL_NAME}{arrow_start}{arrow_end}</a></slot></td>
+	  </tr>
+
+<!-- BEGIN: row -->
+<tr height="20"  onmouseover="setPointer(this, '{PBUNDLE.ID}', 'over', '{BG_COLOR}', '{BG_HILITE}', '{BG_CLICK}');" onmouseout="setPointer(this, '{PBUNDLE.ID}', 'out', '{BG_COLOR}', '{BG_HILITE}', '{BG_CLICK}');" onmousedown="setPointer(this, '{PBUNDLE.ID}', 'click', '{BG_COLOR}', '{BG_HILITE}', '{BG_CLICK}');">
+                <td class="{ROW_COLOR}S1" bgcolor="{BG_COLOR}" valign='top'>{PREROW}</td>
+                           <td scope='row' valign=TOP class="{ROW_COLOR}S1" bgcolor="{BG_COLOR}"><slot><a href="{URL_PREFIX}index.php?action=PBundle_DetailView&module=Products&record={PBUNDLE.ID}"  class="listViewTdLinkS1">{PBUNDLE.NAME}</a></slot></td>
+</tr>
+<tr><td colspan="20" class="listViewHRS1"></td></tr>
+<!-- END: row -->
+{PAGINATION}
+</table>
+<!-- END: main -->

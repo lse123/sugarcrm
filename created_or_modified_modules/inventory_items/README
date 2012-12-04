@@ -1,0 +1,10 @@
+This module is for managing inventories of unique items such as art, jewelry, real estate, etc.
+
+Questions, Comments, Feature Requests, Bug Reports: hello@freshout.us
+
+INSTALLATION
+***********
+
+1. Make sure the directory where sugar is installed is writable.
+2. Click on the admin tab, click module loader, click install from local file, click browse, select this module, upload.
+3. A row should show up desribing this module.  Scroll to the right and click install.  Then click commit.

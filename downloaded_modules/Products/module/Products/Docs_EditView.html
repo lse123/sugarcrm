@@ -1,0 +1,37 @@
+
+<!-- BEGIN: main -->
+<script type="text/javascript" src="include/javascript/popup_parent_helper.js"></script>
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+<tr>
+	<td style="padding-bottom: 2px;">
+			<form name="EditView" method="POST" action="index.php" enctype="multipart/form-data">
+			<input type="hidden" name="doc_id" value="{DOC_ID}">
+			<input type="hidden" name="module" value="Products">
+			<input type="hidden" name="record" value="{RECORD}">
+            <input type="hidden" name="docs" value="1">
+			<input type="hidden" name="action">
+			<input type="hidden" name="return_module" value="{RETURN_MODULE}">
+			<input type="hidden" name="return_id" value="{RETURN_ID}">
+			<input type="hidden" name="return_action" value="{RETURN_ACTION}">
+		<input title="{APP.LBL_SAVE_BUTTON_TITLE}" accessKey="{APP.LBL_SAVE_BUTTON_KEY}" class="button" onclick="this.form.action.value='Save';" type="submit" name="button" value="  {APP.LBL_SAVE_BUTTON_LABEL}  " > <input title="{APP.LBL_CANCEL_BUTTON_TITLE}" accessKey="{APP.LBL_CANCEL_BUTTON_KEY}" class="button" onclick="this.form.action.value='{CANCEL_RETURN_ACTION}'; this.form.module.value='{RETURN_MODULE}'; this.form.record.value='{RECORD}'" type="submit" name="button" value="  {APP.LBL_CANCEL_BUTTON_LABEL}  "></td>
+	<td align="right" nowrap><span  class="required">{APP.LBL_REQUIRED_SYMBOL}</span> {APP.NTC_REQUIRED}</td>
+	<td align='right'>{ADMIN_EDIT}</td>
+</tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0"  class="tabForm">
+	<tr>
+		<td width="15%" class="dataLabel"><slot>{MOD.LBL_DOC_FILENAME}</slot><span class="required">{APP.LBL_REQUIRED_SYMBOL}</span></td>
+<!--		<td width="85%" class="dataField" colspan=3><slot><input name='filename' tabindex='1' type='text' size=121 value="{FILENAME}"></slot></td>       -->
+                <td width="35%" class="dataField"><slot><input name="path" tabindex='1' type="file" size="20" onchange="setvalue(this);"/> {FILENAME_TEXT}</slot></td>
+
+	</tr>
+	<tr>
+		<td width="15%" class="dataLabel"><slot>{MOD.LBL_DOC_DESCRIPTION}</slot></td>
+                <td width="85%" class="dataField" colspan=3><slot><textarea name='description' tabindex='2' cols=40 rows=5>{DESCRIPTION}</textarea></slot></td>
+	</tr>
+
+
+</table>
+</form>
+{JAVASCRIPT}
+<!-- END: main -->
